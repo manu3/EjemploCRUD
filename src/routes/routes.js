@@ -3,12 +3,11 @@
 const express = require('express')
 const router = express.Router() // te devuelve un objeto de js en la cual se puede ir agregando rutas
 
-const   RevistaController = require('../controllers/RevistaController')
+const admin = require('../admin/admin')
 
-router.get('/',RevistaController.list)
-router.post('/add',RevistaController.agregar) // escucha un nueva ruta del metodo post
-router.get('/delete/:id',RevistaController.eliminar)
-router.get('/update/:id',RevistaController.editar)
-router.post('/update/:id',RevistaController.update)
+router.get('/interesSimple', admin.listIntSimple)
+router.post('/addIntSimple', admin.agregarSimple) // escucha un nueva ruta del metodo post
+router.get('/interesCompuesto', admin.listIntSimple)
+router.post('/addIntCompuesto', admin.agregarSimple)
 module.exports = router
 
