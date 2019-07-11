@@ -25,15 +25,25 @@ controller.ListIntCompuesto = (req, res) => {
 
 controller.agregarSimple = (req, res) => {
     const data = req.body
+    const monto = parseFloat(req.body.monto)
+    const dias = parseFloat(req.body.dias)
+    const interes = parseFloat(req.body.monto)
+    //aqui ira tu modulo de npm interes=
+
+    const data = {
+        nombre: req.body.nombre,
+        interes: interes
+
+    }
     dbconnection.query('INSERT INTO interessimple set ?', [data], (err, results) => {
-        res.redirect('/')
+        res.redirect('/interesSimple')
     })
 }
 
 controller.agregarCompuesto = (req, res) => {
     const data = req.body
     dbconnection.query('INSERT INTO interescompuesto set ?', [data], (err, results) => {
-        res.redirect('/')
+        res.redirect('/interesCompuesto')
     })
 }
 
